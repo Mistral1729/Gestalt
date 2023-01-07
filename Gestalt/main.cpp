@@ -124,9 +124,9 @@ int main()
         // Update the transition timer
         transitionTimer += selectorClock.restart().asSeconds();
 
-        // Reset the transition timer if it exceeds the transition duration
-        if (transitionTimer > TRANSITION_DURATION)
-            transitionTimer -= TRANSITION_DURATION;
+        // Reverse the transition direction if the end is reached
+        if (transitionTimer > TRANSITION_DURATION * 2)
+            transitionTimer = TRANSITION_DURATION - (transitionTimer - TRANSITION_DURATION * 2);
 
         // Calculate the transition progress (0.0-1.0)
         float transitionProgress = transitionTimer / TRANSITION_DURATION;
