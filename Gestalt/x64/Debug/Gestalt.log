@@ -1,0 +1,10 @@
+﻿  main.cpp
+  The contents of <numbers> are available only with C++20 or later.
+C:\Gestalt\Gestalt\main.cpp(45,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Gestalt\Gestalt\main.cpp(89,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Gestalt\Gestalt\main.cpp(98,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Gestalt\Gestalt\main.cpp(136,75): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Gestalt\Gestalt\main.cpp(137,75): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Gestalt\Gestalt\main.cpp(138,75): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Gestalt\Gestalt\main.cpp(139,75): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+  Gestalt.vcxproj -> C:\Gestalt\x64\Debug\Gestalt.exe
