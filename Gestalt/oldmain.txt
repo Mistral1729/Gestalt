@@ -1,0 +1,60 @@
+{
+//Background texture for menu
+    sf::Texture bgtex;
+    if (!bgtex.loadFromFile("resources\\portrait6.png"))
+        return -1;
+    bgtex.setSmooth(true);
+
+    //Background menu music
+    sf::Music bgmus;
+    if (!bgmus.openFromFile("resources\\audio\\chimera.ogg"))
+        return -1;
+
+    bgmus.play();
+    bgmus.setVolume(50.0f);
+    bgmus.setLoop(true);
+
+    // Load a font
+    sf::Font font;
+    if (!font.loadFromFile("resources\\fonts\\GOUDOS.ttf"))
+        return -1;
+
+    // Create the title text
+    sf::Text titleText;
+    titleText.setFont(font);
+    titleText.setString("Gestalt");
+    titleText.setCharacterSize(64);
+    titleText.setFillColor(sf::Color::Yellow);
+    titleText.setStyle(sf::Text::Bold);
+    titleText.setPosition(0.5*SCREEN_WIDTH, 0.1*SCREEN_HEIGHT);
+
+    sf::Sprite bgspr(bgtex);
+    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Gestalt");
+
+    //Game Loop
+    while (window.isOpen())
+    {
+        sf::Event e;
+        while (window.pollEvent(e))
+        {
+            if (e.type == sf::Event::Closed)
+            {
+                window.close();
+            }
+        }
+
+        /**
+        *
+        *	DRAW BETWEEN clear() AND display()
+        *
+        **/
+
+        window.clear();
+
+        window.draw(bgspr);
+
+        // Draw the menu
+        window.draw(titleText);
+
+        window.display();
+    }

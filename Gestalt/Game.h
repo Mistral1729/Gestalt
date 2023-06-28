@@ -1,67 +1,37 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <numbers>
-#include <cmath>
-#include <ctime>
-#include <cstdlib>
-#include <vector>
-#include <stack>
-#include <map>
+#include <memory>
+#include <string>
 
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+#include "StateMachine.h"
+#include "AssetManager.h"
+#include "InputManager.h"
 
-class Game
+namespace Tiger
 {
+	struct GameData
+	{
+		StateMachine machine;
+		sf::RenderWindow window;
+		AssetManager assets;
+		InputManager input;
+	};
 
-	/**
-	*
-	*	VARIABLES
-	*
-	**/
+	typedef std::shared_ptr<GameData> GameDataRef;
 
-private:
+	class Game
+	{
+	public:
+		Game(int width, int height, std::string title);
+		~Game() { }
+	
+	private:
+		const float dt = 1.f / 60.f;
+		sf::Clock _clock;
 
-	sf::RenderWindow *window; //config taken from "config\\window.ini"
-	sf::Event sfEvent; //SFML events
+		GameDataRef _data = std::make_shared<GameData>();
 
-	std::map<std::string, sf::Keyboard::Key> supportedKeys; //supported keys
-	std::map<std::string, sf::Keyboard::Key> keybinds; //keybindings
-
-	sf::Clock dtClock; //delta time clock
-	float dt; //delta time
-
-	sf::Texture bgtex; //background texture from "resources\\faded_memories.png"
-	sf::Music bgmus; //background music from "resources\\audio\\fm.ogg"
-	sf::Sprite bgspr; //background sprite utilising background texture
-
-	/**
-	*	
-	*	INITIALISATIONS
-	*
-	**/
-	void initWindow(); //initialise window
-	void initKeys(); //initialise supported keys
-	void initStates(); //initialise states
-
-public:
-
-	/**
-	*
-	*	CONSTRUCTORS / DESTRUCTORS
-	*
-	**/
-
-	/**
-	*
-	*	FUNCTIONS
-	*
-	**/
-
-
-};
+		void Run();
+	};
+	
+}
