@@ -1,6 +1,5 @@
 #include "AssetManager.h"
-
-#define MUSIC_VOLUME 100.f
+#include "Definitions.h"
 
 namespace Tiger
 {

@@ -1,25 +1,7 @@
 ﻿  AssetManager.cpp
   Game.cpp
-  InputManager.cpp
-C:\Gestalt\Gestalt\InputManager.cpp(9,118): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Gestalt\Gestalt\InputManager.cpp(9,98): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
   main.cpp
+  SplashState.cpp
   StateMachine.cpp
   Generating Code...
   Gestalt.vcxproj -> C:\Gestalt\x64\Debug\Gestalt.exe

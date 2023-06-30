@@ -1,11 +1,10 @@
 #include <iostream>
 
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 1024
+#include "Game.h"
 
 int main()
 {
-    
+    Tiger::Game(800, 600, "Gestalt");
 
     return 0;
 }
