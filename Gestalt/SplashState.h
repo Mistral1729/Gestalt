@@ -23,7 +23,6 @@ namespace Tiger
 
 		sf::Clock _clock;
 
-		sf::Texture _bgTexture;
 		sf::Sprite _bg;
 	};
 }

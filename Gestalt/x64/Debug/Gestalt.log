@@ -1,5 +1,7 @@
 ﻿  AssetManager.cpp
   Game.cpp
+  MainMenuState.cpp
+C:\Gestalt\Gestalt\MainMenuState.cpp(20,63): warning C4305: 'argument': truncation from 'double' to 'float'
   SplashState.cpp
   main.cpp
   Generating Code...

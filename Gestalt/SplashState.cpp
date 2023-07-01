@@ -1,6 +1,7 @@
 #include <sstream>
 #include <iostream>
 
+#include "MainMenuState.h"
 #include "SplashState.h"
 
 namespace Tiger
@@ -37,7 +38,7 @@ namespace Tiger
 	{
 		if (_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 		{
-			std::cout << "On to Main Menu. " << "\n";
+			_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
 		}
 	}
 
