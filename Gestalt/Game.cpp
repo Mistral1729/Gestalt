@@ -7,6 +7,12 @@ namespace Tiger
 	{
 		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 		_data->machine.AddState(StateRef(new SplashState(this->_data)));
+		
+		_data->music.openFromFile(MUSIC_FILEPATH);
+		_data->music.setVolume(0.5 * MUSIC_VOLUME);
+		_data->music.setLoop(true);
+
+		_data->music.play();
 
 		this->Run();
 	}

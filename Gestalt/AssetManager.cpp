@@ -47,13 +47,4 @@ namespace Tiger
 	{
 		return this->_sounds.at(name);
 	}
-
-	void AssetManager::LoadMusic(std::string fileName)
-	{
-		if (_music.openFromFile(fileName))
-		{
-			_music.setVolume(0.6 * MUSIC_VOLUME);
-			_music.play();
-		}
-	}
 }

@@ -6,6 +6,7 @@
 #include "StateMachine.h"
 #include "AssetManager.h"
 #include "InputManager.h"
+#include "Definitions.h"
 
 namespace Tiger
 {
@@ -13,6 +14,7 @@ namespace Tiger
 	{
 		StateMachine machine;
 		sf::RenderWindow window;
+		sf::Music music;
 		AssetManager assets;
 		InputManager input;
 	};

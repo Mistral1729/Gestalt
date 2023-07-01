@@ -24,9 +24,6 @@ namespace Tiger
 		void LoadSound(std::string name, std::string fileName);
 		sf::Sound &GetSound(std::string name);
 
-		void LoadMusic(std::string fileName);
-		sf::Music _music;
-
 	private:
 		std::map<std::string, sf::Texture> _textures;
 		std::map<std::string, sf::Font> _fonts;

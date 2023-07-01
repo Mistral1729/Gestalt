@@ -1,7 +1,6 @@
 ﻿  AssetManager.cpp
   Game.cpp
-  main.cpp
   SplashState.cpp
-  StateMachine.cpp
+  main.cpp
   Generating Code...
   Gestalt.vcxproj -> C:\Gestalt\x64\Debug\Gestalt.exe

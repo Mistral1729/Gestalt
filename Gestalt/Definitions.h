@@ -4,6 +4,7 @@
 #define SCREEN_HEIGHT 1024
 
 #define MUSIC_VOLUME 100.f
+#define MUSIC_FILEPATH "resources\\audio\\whitebat.ogg"
 
 #define SPLASH_STATE_SHOW_TIME 3.f
 #define SPLASH_SCENE_BG_FILEPATH "resources\\splash_scene_bg.png"
