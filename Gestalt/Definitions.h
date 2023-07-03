@@ -50,10 +50,18 @@
 #define SPIKE_UP_FILEPATH	"resources\\spike_up.png"
 #define SPIKE_DOWN_FILEPATH	"resources\\spike_down.png"
 
-#define TILE_SPEED	200.f
-#define SPIKE_SPEED	200.f
+/**
+
+	TILE SPEEDS, SPAWN FREQUENCIES, ANIMATION DURATIONS
+
+**/
+
+#define TILE_SPEED	100.f
 
 #define SPIKE_SPAWN_FREQUENCY	3.f
+
+#define STAND_ANIMATION_DURATION	6.f
+#define RUN_ANIMATION_DURATION		1.f
 
 /**
 

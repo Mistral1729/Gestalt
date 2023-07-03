@@ -4,14 +4,15 @@ namespace Tiger
 {
 	Spikes::Spikes(GameDataRef data) : _data(data)
 	{
-
+		_spikesHeight = _data->assets.GetTexture("Spike Down").getSize().y;
+		_spikeSpawnYOffset = 0;
 	}
 
 	void Spikes::SpawnSpikesDown()
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("Spike Down"));
 
-		sprite.setPosition(_data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height);
+		sprite.setPosition(_data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height + _spikeSpawnYOffset);
 
 		_spikeSprites.push_back(sprite);
 	}
@@ -45,7 +46,7 @@ namespace Tiger
 			}
 			else
 			{
-				float movement = SPIKE_SPEED * dt;
+				float movement = TILE_SPEED * dt;
 
 				_spikeSprites.at(i).move(-movement, 0);
 			}
@@ -58,5 +59,15 @@ namespace Tiger
 		{
 			_data->window.draw(_spikeSprites.at(i));
 		}
+	}
+
+	void Spikes::RandomiseSpikeOffset()
+	{
+		_spikeSpawnYOffset = rand() % (_spikesHeight + 1);
+	}
+
+	int Spikes::GetTilesCount()
+	{
+		return _spikeSprites.size();
 	}
 }

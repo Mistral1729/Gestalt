@@ -18,9 +18,14 @@ namespace Tiger
 		void SpawnInvisibleSpikes();
 		void MoveSpikes(float dt);
 		void DrawSpikes();
+		void RandomiseSpikeOffset();
+		int GetTilesCount();
 
 	private:
 		GameDataRef _data;
 		std::vector<sf::Sprite> _spikeSprites;
+
+		int _spikesHeight;
+		int _spikeSpawnYOffset;
 	};
 }
