@@ -39,11 +39,11 @@ namespace Tiger
 
 		if (buffer.loadFromFile(fileName))
 		{
-			this->_sounds[name].setBuffer(buffer);
+			this->_sounds[name] = buffer;
 		}
 	}
 
-	sf::Sound& AssetManager::GetSound(std::string name)
+	sf::SoundBuffer &AssetManager::GetSound(std::string name)
 	{
 		return this->_sounds.at(name);
 	}

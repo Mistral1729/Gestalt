@@ -1,6 +1,8 @@
 #include <sstream>
 #include <iostream>
 
+#include "LevelState.h"
+#include "CreditsState.h"
 #include "MainMenuState.h"
 
 namespace Tiger
@@ -21,21 +23,19 @@ namespace Tiger
 
 		_data->assets.LoadTexture("Start Button", START_BUTTON_FILEPATH);
 		_startButton.setTexture(this->_data->assets.GetTexture("Start Button"));
-		_startButton.setPosition(50, 400);
+		_startButton.setPosition((0.4 * SCREEN_WIDTH) - 15, 0.5 * SCREEN_HEIGHT);
 
 		_data->assets.LoadTexture("Quit Button", QUIT_BUTTON_FILEPATH);
 		_quitButton.setTexture(this->_data->assets.GetTexture("Quit Button"));
-		_quitButton.setPosition(50, 450);
-
-		_data->assets.LoadTexture("Next Button", NEXT_BUTTON_FILEPATH);
-		_nextButton.setTexture(this->_data->assets.GetTexture("Next Button"));
-
-		_data->assets.LoadTexture("Back Button", BACK_BUTTON_FILEPATH);
-		_backButton.setTexture(this->_data->assets.GetTexture("Back Button"));
+		_quitButton.setPosition(_startButton.getPosition().x, _startButton.getPosition().y + 50);
 
 		_data->assets.LoadTexture("Credits Button", CREDITS_BUTTON_FILEPATH);
 		_creditsButton.setTexture(this->_data->assets.GetTexture("Credits Button"));
-		_creditsButton.setPosition(50, 500);
+		_creditsButton.setPosition(_quitButton.getPosition().x + 5, _quitButton.getPosition().y + 50);
+
+		_data->assets.LoadSound("Click Sound", CLICK_SOUND_FILEPATH);
+		_clickSound.setBuffer(this->_data->assets.GetSound("Click Sound"));
+		_clickSound.setVolume(SOUND_VOLUME);
 	}
 
 	void MainMenuState::HandleInput()
@@ -52,6 +52,39 @@ namespace Tiger
 			default:
 				break;
 			}
+		}
+
+		if ((_startButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window)))) ||
+			(_quitButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window)))) ||
+			(_creditsButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window)))))
+		{
+			if (_clock.getElapsedTime().asSeconds() > 0.3f) //the click sound actually "picks up" at roughly 0.3 seconds, hence this choice 
+			{
+				_clickSound.setLoop(false);
+			}
+			else
+			{
+				_clickSound.play();
+			}
+		}
+		else
+		{
+			_clock.restart();
+		}
+
+		if (_data->input.IsSpriteClicked(_startButton, sf::Mouse::Left, _data->window))
+		{
+			_data->machine.AddState(StateRef(new LevelState(_data)), true);
+		}
+
+		if (_data->input.IsSpriteClicked(_quitButton, sf::Mouse::Left, _data->window))
+		{
+			_data->window.close();
+		}
+
+		if (_data->input.IsSpriteClicked(_creditsButton, sf::Mouse::Left, _data->window))
+		{
+			_data->machine.AddState(StateRef(new CreditsState(_data)), true);
 		}
 	}
 

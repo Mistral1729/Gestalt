@@ -4,7 +4,7 @@
 
 int main()
 {
-    Tiger::Game(800, 600, "Gestalt");
+    Tiger::Game(SCREEN_WIDTH, SCREEN_HEIGHT, "Gestalt");
 
     return 0;
 }

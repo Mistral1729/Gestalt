@@ -21,12 +21,14 @@ namespace Tiger
 	private:
 		GameDataRef _data;
 
+		sf::Clock _clock;
+
 		sf::Sprite _bg;
 		sf::Sprite _title;
 		sf::Sprite _startButton;
 		sf::Sprite _quitButton;
-		sf::Sprite _nextButton;
-		sf::Sprite _backButton;
 		sf::Sprite _creditsButton;
+
+		sf::Sound _clickSound;
 	};
 }

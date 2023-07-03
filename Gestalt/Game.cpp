@@ -9,7 +9,7 @@ namespace Tiger
 		_data->machine.AddState(StateRef(new SplashState(this->_data)), true);
 		
 		_data->music.openFromFile(MUSIC_FILEPATH);
-		_data->music.setVolume(0.5 * MUSIC_VOLUME);
+		_data->music.setVolume(0.4 * MUSIC_VOLUME);
 		_data->music.setLoop(true);
 
 		_data->music.play();
