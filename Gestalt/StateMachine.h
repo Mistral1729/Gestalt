@@ -19,6 +19,7 @@ namespace Tiger
 		void RemoveState();
 
 		void ProcessStateChanges();
+		int getStatesCount();
 
 		StateRef& GetActiveState();
 	private:

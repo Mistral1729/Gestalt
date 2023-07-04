@@ -14,6 +14,7 @@ namespace Tiger
 		Sara(GameDataRef data);
 
 		void AnimateStanding(float dt);
+		void AnimateRunning(float dt);
 		void Draw();
 
 	private:

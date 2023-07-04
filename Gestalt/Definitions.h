@@ -60,7 +60,7 @@
 
 #define SPIKE_SPAWN_FREQUENCY	3.f
 
-#define STAND_ANIMATION_DURATION	6.f
+#define STAND_ANIMATION_DURATION	3.f
 #define RUN_ANIMATION_DURATION		1.f
 
 /**
@@ -78,32 +78,32 @@
 
 //STAND
 
-#define SARA_STAND_SPRITE1_FILEPATH "resources\\sara\\stand1.png"
-#define SARA_STAND_SPRITE2_FILEPATH "resources\\sara\\stand2.png"
-#define SARA_STAND_SPRITE3_FILEPATH "resources\\sara\\stand3.png"
-#define SARA_STAND_SPRITE4_FILEPATH "resources\\sara\\stand4.png"
-#define SARA_STAND_SPRITE5_FILEPATH "resources\\sara\\stand5.png"
-#define SARA_STAND_SPRITE6_FILEPATH "resources\\sara\\stand6.png"
-#define SARA_STAND_SPRITE7_FILEPATH "resources\\sara\\stand7.png"
-#define SARA_STAND_SPRITE8_FILEPATH "resources\\sara\\stand8.png"
-#define SARA_STAND_SPRITE9_FILEPATH "resources\\sara\\stand9.png"
-#define SARA_STAND_SPRITE10_FILEPATH "resources\\sara\\stand10.png"
-#define SARA_STAND_SPRITE11_FILEPATH "resources\\sara\\stand11.png"
-#define SARA_STAND_SPRITE12_FILEPATH "resources\\sara\\stand12.png"
+#define SARA_STAND_SPRITE1_FILEPATH		"resources\\sara\\stand1.png"
+#define SARA_STAND_SPRITE2_FILEPATH		"resources\\sara\\stand2.png"
+#define SARA_STAND_SPRITE3_FILEPATH		"resources\\sara\\stand3.png"
+#define SARA_STAND_SPRITE4_FILEPATH		"resources\\sara\\stand4.png"
+#define SARA_STAND_SPRITE5_FILEPATH		"resources\\sara\\stand5.png"
+#define SARA_STAND_SPRITE6_FILEPATH		"resources\\sara\\stand6.png"
+#define SARA_STAND_SPRITE7_FILEPATH		"resources\\sara\\stand7.png"
+#define SARA_STAND_SPRITE8_FILEPATH		"resources\\sara\\stand8.png"
+#define SARA_STAND_SPRITE9_FILEPATH		"resources\\sara\\stand9.png"
+#define SARA_STAND_SPRITE10_FILEPATH	"resources\\sara\\stand10.png"
+#define SARA_STAND_SPRITE11_FILEPATH	"resources\\sara\\stand11.png"
+#define SARA_STAND_SPRITE12_FILEPATH	"resources\\sara\\stand12.png"
 
 //RUN
 
-#define SARA_RUN_SPRITE1_FILEPATH "resources\\sara\\run1.png"
-#define SARA_RUN_SPRITE2_FILEPATH "resources\\sara\\run2.png"
-#define SARA_RUN_SPRITE3_FILEPATH "resources\\sara\\run3.png"
-#define SARA_RUN_SPRITE4_FILEPATH "resources\\sara\\run4.png"
-#define SARA_RUN_SPRITE5_FILEPATH "resources\\sara\\run5.png"
-#define SARA_RUN_SPRITE6_FILEPATH "resources\\sara\\run6.png"
-#define SARA_RUN_SPRITE7_FILEPATH "resources\\sara\\run7.png"
-#define SARA_RUN_SPRITE8_FILEPATH "resources\\sara\\run8.png"
-#define SARA_RUN_SPRITE9_FILEPATH "resources\\sara\\run9.png"
-#define SARA_RUN_SPRITE10_FILEPATH "resources\\sara\\run10.png"
-#define SARA_RUN_SPRITE11_FILEPATH "resources\\sara\\run11.png"
+#define SARA_RUN_SPRITE1_FILEPATH	"resources\\sara\\run1.png"
+#define SARA_RUN_SPRITE2_FILEPATH	"resources\\sara\\run2.png"
+#define SARA_RUN_SPRITE3_FILEPATH	"resources\\sara\\run3.png"
+#define SARA_RUN_SPRITE4_FILEPATH	"resources\\sara\\run4.png"
+#define SARA_RUN_SPRITE5_FILEPATH	"resources\\sara\\run5.png"
+#define SARA_RUN_SPRITE6_FILEPATH	"resources\\sara\\run6.png"
+#define SARA_RUN_SPRITE7_FILEPATH	"resources\\sara\\run7.png"
+#define SARA_RUN_SPRITE8_FILEPATH	"resources\\sara\\run8.png"
+#define SARA_RUN_SPRITE9_FILEPATH	"resources\\sara\\run9.png"
+#define SARA_RUN_SPRITE10_FILEPATH	"resources\\sara\\run10.png"
+#define SARA_RUN_SPRITE11_FILEPATH	"resources\\sara\\run11.png"
 
 //ROLL
 
@@ -115,15 +115,15 @@
 
 //FLIP
 
-#define SARA_FLIP_SPRITE1_FILEPATH "resources\\sara\\flip1.png"
-#define SARA_FLIP_SPRITE2_FILEPATH "resources\\sara\\flip2.png"
-#define SARA_FLIP_SPRITE3_FILEPATH "resources\\sara\\flip3.png"
-#define SARA_FLIP_SPRITE4_FILEPATH "resources\\sara\\flip4.png"
-#define SARA_FLIP_SPRITE5_FILEPATH "resources\\sara\\flip5.png"
-#define SARA_FLIP_SPRITE6_FILEPATH "resources\\sara\\flip6.png"
-#define SARA_FLIP_SPRITE7_FILEPATH "resources\\sara\\flip7.png"
-#define SARA_FLIP_SPRITE8_FILEPATH "resources\\sara\\flip8.png"
-#define SARA_FLIP_SPRITE9_FILEPATH "resources\\sara\\flip9.png"
+#define SARA_FLIP_SPRITE1_FILEPATH	"resources\\sara\\flip1.png"
+#define SARA_FLIP_SPRITE2_FILEPATH	"resources\\sara\\flip2.png"
+#define SARA_FLIP_SPRITE3_FILEPATH	"resources\\sara\\flip3.png"
+#define SARA_FLIP_SPRITE4_FILEPATH	"resources\\sara\\flip4.png"
+#define SARA_FLIP_SPRITE5_FILEPATH	"resources\\sara\\flip5.png"
+#define SARA_FLIP_SPRITE6_FILEPATH	"resources\\sara\\flip6.png"
+#define SARA_FLIP_SPRITE7_FILEPATH	"resources\\sara\\flip7.png"
+#define SARA_FLIP_SPRITE8_FILEPATH	"resources\\sara\\flip8.png"
+#define SARA_FLIP_SPRITE9_FILEPATH	"resources\\sara\\flip9.png"
 #define SARA_FLIP_SPRITE10_FILEPATH "resources\\sara\\flip10.png"
 #define SARA_FLIP_SPRITE11_FILEPATH "resources\\sara\\flip11.png"
 #define SARA_FLIP_SPRITE12_FILEPATH "resources\\sara\\flip12.png"

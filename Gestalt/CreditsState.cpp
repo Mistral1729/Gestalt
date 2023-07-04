@@ -22,10 +22,6 @@ namespace Tiger
 		_data->assets.LoadTexture("Back Button", BACK_BUTTON_FILEPATH);
 		_backButton.setTexture(this->_data->assets.GetTexture("Back Button"));
 		_backButton.setPosition(0.25 * SCREEN_WIDTH, SCREEN_HEIGHT - 100);
-
-		_data->assets.LoadSound("Back Sound", BACK_SOUND_FILEPATH);
-		_backSound.setBuffer(this->_data->assets.GetSound("Back Sound"));
-		_backSound.setVolume(SOUND_VOLUME);
 	}
 
 	void CreditsState::HandleInput()
@@ -46,7 +42,7 @@ namespace Tiger
 
 		if (_data->input.IsSpriteClicked(_backButton, sf::Mouse::Left, _data->window))
 		{
-			_backSound.play();
+			_data->machine.AddState( StateRef(new MainMenuState(_data)), true);
 		}
 	}
 

@@ -33,9 +33,9 @@ namespace Tiger
 		_creditsButton.setTexture(this->_data->assets.GetTexture("Credits Button"));
 		_creditsButton.setPosition(_quitButton.getPosition().x + 5, _quitButton.getPosition().y + 50);
 
-		_data->assets.LoadSound("Click Sound", CLICK_SOUND_FILEPATH);
-		_clickSound.setBuffer(this->_data->assets.GetSound("Click Sound"));
-		_clickSound.setVolume(SOUND_VOLUME);
+		//_data->assets.LoadSound("Click Sound", CLICK_SOUND_FILEPATH);
+		//_clickSound.setBuffer(this->_data->assets.GetSound("Click Sound"));
+		//_clickSound.setVolume(SOUND_VOLUME);
 	}
 
 	void MainMenuState::HandleInput()
@@ -54,6 +54,8 @@ namespace Tiger
 			}
 		}
 
+		/*
+
 		if ((_startButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window)))) ||
 			(_quitButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window)))) ||
 			(_creditsButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window)))))
@@ -71,6 +73,8 @@ namespace Tiger
 		{
 			_clock.restart();
 		}
+
+		*/
 
 		if (_data->input.IsSpriteClicked(_startButton, sf::Mouse::Left, _data->window))
 		{

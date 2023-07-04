@@ -26,7 +26,5 @@ namespace Tiger
 		sf::Sprite _bg;
 		sf::Sprite _nextButton;
 		sf::Sprite _backButton;
-
-		sf::Sound _backSound;
 	};
 }

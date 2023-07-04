@@ -49,6 +49,11 @@ namespace Tiger
 		}
 	}
 
+	int StateMachine::getStatesCount()
+	{
+		return _states.size();
+	}
+
 	StateRef& StateMachine::GetActiveState()
 	{
 		return this->_states.top();

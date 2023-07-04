@@ -32,6 +32,19 @@ namespace Tiger
 		_data->assets.LoadTexture("Stand Frame 11", SARA_STAND_SPRITE11_FILEPATH);
 		_data->assets.LoadTexture("Stand Frame 12", SARA_STAND_SPRITE12_FILEPATH);
 
+		_data->assets.LoadTexture("Run Frame 1", SARA_RUN_SPRITE1_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 2", SARA_RUN_SPRITE2_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 3", SARA_RUN_SPRITE3_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 4", SARA_RUN_SPRITE4_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 5", SARA_RUN_SPRITE5_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 6", SARA_RUN_SPRITE6_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 7", SARA_RUN_SPRITE7_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 8", SARA_RUN_SPRITE8_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 9", SARA_RUN_SPRITE9_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 10", SARA_RUN_SPRITE10_FILEPATH);
+		_data->assets.LoadTexture("Run Frame 11", SARA_RUN_SPRITE11_FILEPATH);
+
+
 		spikes = new Spikes(_data);
 		land = new Land(_data);
 		sara = new Sara(_data);
@@ -74,25 +87,24 @@ namespace Tiger
 		if (_run)
 		{
 			land->MoveLand(dt);
+			sara->AnimateRunning(dt);
 			spikes->MoveSpikes(dt);
+
+			if ((_clock.getElapsedTime().asSeconds() > SPIKE_SPAWN_FREQUENCY))
+			{
+				spikes->RandomiseSpikeOffset();
+				spikes->SpawnSpikesDown();
+
+				_clock.restart();
+			}
+		}
+		else
+		{
+			sara->AnimateStanding(dt);
 		}
 
 		//Uncomment the line below to ensure that yes, you don't need to worry about infinite tiles crashing your machine ;-)
 		//std::cout << "Land tiles count: " << land->GetTilesCount() << "\n" << "Spikes count: " << spikes->GetTilesCount() << "\n";
-
-		if ((_clock.getElapsedTime().asSeconds() > SPIKE_SPAWN_FREQUENCY) && (_run))
-		{
-			spikes->RandomiseSpikeOffset();
-
-			spikes->SpawnSpikesDown();
-
-			_clock.restart();
-		}
-
-		if (!_run && !_jump && !_roll && !_flip && !_crouch)
-		{
-			sara->AnimateStanding(dt);
-		}
 	}
 
 	void LevelState::Draw(float dt)
