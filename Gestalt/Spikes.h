@@ -15,7 +15,6 @@ namespace Tiger
 
 		void SpawnSpikesDown();
 		void SpawnSpikesUp();
-		void SpawnInvisibleSpikes();
 		void MoveSpikes(float dt);
 		void DrawSpikes();
 		void RandomiseSpikeOffset();

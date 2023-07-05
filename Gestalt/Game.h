@@ -15,6 +15,7 @@ namespace Tiger
 		StateMachine machine;
 		sf::RenderWindow window;
 		sf::Music music;
+		sf::Sound clickSound;
 		AssetManager assets;
 		InputManager input;
 	};

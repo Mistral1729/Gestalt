@@ -32,19 +32,4 @@ namespace Tiger
 	{
 		return this->_fonts.at(name);
 	}
-
-	void AssetManager::LoadSound(std::string name, std::string fileName)
-	{
-		sf::SoundBuffer buffer;
-
-		if (buffer.loadFromFile(fileName))
-		{
-			this->_sounds[name] = buffer;
-		}
-	}
-
-	sf::SoundBuffer &AssetManager::GetSound(std::string name)
-	{
-		return this->_sounds.at(name);
-	}
 }

@@ -32,10 +32,6 @@ namespace Tiger
 		_data->assets.LoadTexture("Credits Button", CREDITS_BUTTON_FILEPATH);
 		_creditsButton.setTexture(this->_data->assets.GetTexture("Credits Button"));
 		_creditsButton.setPosition(_quitButton.getPosition().x + 5, _quitButton.getPosition().y + 50);
-
-		//_data->assets.LoadSound("Click Sound", CLICK_SOUND_FILEPATH);
-		//_clickSound.setBuffer(this->_data->assets.GetSound("Click Sound"));
-		//_clickSound.setVolume(SOUND_VOLUME);
 	}
 
 	void MainMenuState::HandleInput()
@@ -54,7 +50,7 @@ namespace Tiger
 			}
 		}
 
-		/*
+		
 
 		if ((_startButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window)))) ||
 			(_quitButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window)))) ||
@@ -62,19 +58,17 @@ namespace Tiger
 		{
 			if (_clock.getElapsedTime().asSeconds() > 0.3f) //the click sound actually "picks up" at roughly 0.3 seconds, hence this choice 
 			{
-				_clickSound.setLoop(false);
+				_data->clickSound.setLoop(false);
 			}
 			else
 			{
-				_clickSound.play();
+				_data->clickSound.play();
 			}
 		}
 		else
 		{
 			_clock.restart();
 		}
-
-		*/
 
 		if (_data->input.IsSpriteClicked(_startButton, sf::Mouse::Left, _data->window))
 		{

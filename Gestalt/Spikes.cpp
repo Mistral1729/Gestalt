@@ -26,16 +26,6 @@ namespace Tiger
 		_spikeSprites.push_back(sprite);
 	}
 	
-	void Spikes::SpawnInvisibleSpikes()
-	{
-		sf::Sprite sprite(_data->assets.GetTexture("Spike Up"));
-
-		sprite.setPosition(_data->window.getSize().x, 0);
-		sprite.setColor(sf::Color(0, 0, 0, 0));
-
-		_spikeSprites.push_back(sprite);
-	}
-	
 	void Spikes::MoveSpikes(float dt)
 	{
 		for (unsigned short int i = 0; i < _spikeSprites.size(); i++)

@@ -44,9 +44,25 @@ namespace Tiger
 			}
 		}
 
+		if (_backButton.getGlobalBounds().contains(_data->window.mapPixelToCoords(sf::Mouse::getPosition(_data->window))))
+		{
+			if (_clock.getElapsedTime().asSeconds() > 0.3f) //the click sound actually "picks up" at roughly 0.3 seconds, hence this choice 
+			{
+				_data->clickSound.setLoop(false);
+			}
+			else
+			{
+				_data->clickSound.play();
+			}
+		}
+		else
+		{
+			_clock.restart();
+		}
+
 		if (_data->input.IsSpriteClicked(_backButton, sf::Mouse::Left, _data->window))
 		{
-			_data->machine.AddState( StateRef(new MainMenuState(_data)), true);
+			_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
 		}
 	}
 

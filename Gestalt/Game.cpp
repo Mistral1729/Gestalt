@@ -19,6 +19,12 @@ namespace Tiger
 
 		_data->music.play();
 
+		sf::SoundBuffer clickBuffer;
+		clickBuffer.loadFromFile(CLICK_SOUND_FILEPATH);
+		
+		_data->clickSound.setBuffer(clickBuffer);
+		_data->clickSound.setVolume(0.6 * SOUND_VOLUME);
+
 		this->Run();
 	}
 

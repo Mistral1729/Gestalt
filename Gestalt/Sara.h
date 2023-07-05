@@ -15,6 +15,10 @@ namespace Tiger
 
 		void AnimateStanding(float dt);
 		void AnimateRunning(float dt);
+		void AnimateJumping(float dt);
+		void AnimateCrouching(float dt);
+		void AnimateFlipping(float dt);
+		void AnimateRolling(float dt);
 		void Draw();
 
 	private:
