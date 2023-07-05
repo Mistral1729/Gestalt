@@ -13,6 +13,7 @@
 
 #define MAIN_MENU_BG_FILEPATH		"resources\\ui\\menu.png"
 #define CREDITS_MENU_BG_FILEPATH	"resources\\ui\\menu.png"
+#define CREDITS_INTERFACE_FILEPATH	"resources\\ui\\credits_interface.png"
 
 #define GAME_BG_FILEPATH		"resources\\oga-swm-bg-gradient-sky.png"
 #define GAME_OVER_BG_FILEPATH	"resources\\oga-swm-bg-gradient-sky.png"

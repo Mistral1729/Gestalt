@@ -24,6 +24,7 @@ namespace Tiger
 		sf::Clock _clock;
 
 		sf::Sprite _bg;
+		sf::Sprite _interface;
 		sf::Sprite _nextButton;
 		sf::Sprite _backButton;
 	};
