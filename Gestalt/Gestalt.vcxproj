@@ -161,7 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
-    <ClInclude Include="Bullet.h" />
     <ClInclude Include="CreditsState.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Game.h" />

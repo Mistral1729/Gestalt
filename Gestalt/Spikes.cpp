@@ -25,8 +25,17 @@ namespace Tiger
 
 		_spikeSprites.push_back(sprite);
 	}
+
+	void Spikes::SpawnBullets()
+	{
+		sf::Sprite sprite(_data->assets.GetTexture("Bullet"));
+
+		sprite.setPosition(_data->window.getSize().x, 0);
+
+		_spikeSprites.push_back(sprite);
+	}
 	
-	void Spikes::MoveSpikes(float dt)
+	void Spikes::MoveBulletsDown(float dt)
 	{
 		for (unsigned short int i = 0; i < _spikeSprites.size(); i++)
 		{
@@ -36,9 +45,9 @@ namespace Tiger
 			}
 			else
 			{
-				float movement = TILE_SPEED * dt;
+				float movement = BULLET_SPEED * dt;
 
-				_spikeSprites.at(i).move(-movement, 0);
+				_spikeSprites.at(i).move(-movement, movement);
 			}
 		}
 	}

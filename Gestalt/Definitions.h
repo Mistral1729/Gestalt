@@ -51,6 +51,8 @@
 #define SPIKE_UP_FILEPATH	"resources\\spike_up.png"
 #define SPIKE_DOWN_FILEPATH	"resources\\spike_down.png"
 
+#define BULLET_FILEPATH	"resources\\bullet.png"
+
 /**
 
 	TILE SPEEDS, SPAWN FREQUENCIES, ANIMATION DURATIONS
@@ -58,8 +60,10 @@
 **/
 
 #define TILE_SPEED	100.f
+#define BULLET_SPEED	100.f
 
 #define SPIKE_SPAWN_FREQUENCY	3.f
+#define BULLET_SPAWN_FREQUENCY	15.f	//must increase frequency gradually
 
 #define STAND_ANIMATION_DURATION		3.f
 #define RUN_ANIMATION_DURATION			1.f

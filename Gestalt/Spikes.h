@@ -8,14 +8,16 @@
 
 namespace Tiger
 {
-	class Spikes
+	class Spikes //ATTENTION: THIS IS ACTUALLY IMPLEMENTING BULLETS, BUT NO TIME TO RENAME SHIT YET... SO REUSING SPIKES BOILERPLATE CODE
 	{
 	public:
 		Spikes(GameDataRef data);
 
 		void SpawnSpikesDown();
 		void SpawnSpikesUp();
+		void SpawnBullets();
 		void MoveSpikes(float dt);
+		void MoveBulletsDown(float dt);
 		void DrawSpikes();
 		void RandomiseSpikeOffset();
 		int GetTilesCount();

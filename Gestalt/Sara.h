@@ -19,6 +19,7 @@ namespace Tiger
 		void AnimateCrouching(float dt);
 		void AnimateFlipping(float dt);
 		void AnimateRolling(float dt);
+		void Update(float dt);
 		void Draw();
 
 	private:
@@ -27,6 +28,8 @@ namespace Tiger
 		sf::Clock _clock;
 
 		sf::Sprite _saraSprite;
+		sf::Vector2f _pos, _vel;
+		const float _g = 10.f, _yOffset = 135.f;
 
 		std::vector<sf::Texture> _standingFrames;
 		std::vector<sf::Texture> _runningFrames;

@@ -5,6 +5,8 @@ namespace Tiger
 	Sara::Sara(GameDataRef data) : _data(data)
 	{
 		_animationIterator = 0;
+		_pos.x = 0.2 * SCREEN_WIDTH; _pos.y = SCREEN_HEIGHT - 50;
+		_vel.x = _vel.y = 0;
 
 		_standingFrames.push_back(_data->assets.GetTexture("Stand Frame 1"));
 		_standingFrames.push_back(_data->assets.GetTexture("Stand Frame 2"));
@@ -69,7 +71,7 @@ namespace Tiger
 		_rollingFrames.push_back(_data->assets.GetTexture("Roll Frame 5"));
 
 		_saraSprite.setTexture(_standingFrames.at(_animationIterator));
-		_saraSprite.setPosition(0.2 * SCREEN_WIDTH, SCREEN_HEIGHT - 50);
+		_saraSprite.setPosition(_pos);
 	}
 
 	void Sara::AnimateStanding(float dt)
@@ -98,6 +100,7 @@ namespace Tiger
 
 	void Sara::AnimateJumping(float dt)
 	{
+		if (_saraSprite.getPosition().y >= SCREEN_HEIGHT - _yOffset)		_saraSprite.setPosition(_pos.x, _pos.y - 10);
 		if (_clock.getElapsedTime().asSeconds() > (JUMP_ANIMATION_DURATION / _jumpingFrames.size()))
 		{
 			if (_animationIterator < _jumpingFrames.size() - 1)		_animationIterator++;
@@ -142,6 +145,21 @@ namespace Tiger
 			_saraSprite.setTexture(_rollingFrames.at(_animationIterator));
 			_clock.restart();
 		}
+	}
+
+	void Sara::Update(float dt)
+	{
+		_pos = _saraSprite.getPosition();
+		_pos += _vel * dt;
+		if (_pos.y < SCREEN_HEIGHT - 50)
+		{
+			_vel.y += _g * dt;
+		}
+		else
+		{
+			_vel.y = 0;
+		}
+		_saraSprite.setPosition(_pos);
 	}
 
 	void Sara::Draw()
