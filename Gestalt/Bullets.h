@@ -8,10 +8,10 @@
 
 namespace Tiger
 {
-	class Spikes //ATTENTION: THIS IS ACTUALLY IMPLEMENTING BULLETS, BUT NO TIME TO RENAME SHIT YET... SO REUSING SPIKES BOILERPLATE CODE
+	class Bullets 
 	{
 	public:
-		Spikes(GameDataRef data);
+		Bullets(GameDataRef data);
 
 		void SpawnBullets();
 		void MoveBulletsDown(float dt);
@@ -24,7 +24,7 @@ namespace Tiger
 
 	private:
 		GameDataRef _data;
-		std::vector<sf::Sprite> _spikeSprites;
+		std::vector<sf::Sprite> _bulletSprites;
 
 		int _bulletWidth;
 		int _bulletSpawnXOffset;

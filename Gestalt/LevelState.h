@@ -4,7 +4,7 @@
 
 #include "State.h"
 #include "Game.h"
-#include "Spikes.h"
+#include "Bullets.h"
 #include "Land.h"
 #include "Sara.h"
 
@@ -29,7 +29,7 @@ namespace Tiger
 
 		sf::Sprite _bg;
 
-		Spikes *spikes;
+		Bullets *bullets;
 		Land *land;
 		Sara *sara;
 		GameCursor *cursor;

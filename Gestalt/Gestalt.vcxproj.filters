@@ -48,7 +48,7 @@
     <ClCompile Include="Sara.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Spikes.cpp">
+    <ClCompile Include="Bullets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Land.cpp">
@@ -92,7 +92,7 @@
     <ClInclude Include="Sara.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Spikes.h">
+    <ClInclude Include="Bullets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Land.h">

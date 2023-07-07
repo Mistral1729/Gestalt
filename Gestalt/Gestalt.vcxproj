@@ -155,7 +155,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Sara.cpp" />
-    <ClCompile Include="Spikes.cpp" />
+    <ClCompile Include="Bullets.cpp" />
     <ClCompile Include="SplashState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
@@ -170,7 +170,7 @@
     <ClInclude Include="LevelState.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Sara.h" />
-    <ClInclude Include="Spikes.h" />
+    <ClInclude Include="Bullets.h" />
     <ClInclude Include="SplashState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />

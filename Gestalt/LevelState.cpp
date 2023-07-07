@@ -81,7 +81,7 @@ namespace Tiger
 		_data->assets.LoadTexture("Roll Frame 4", SARA_ROLL_SPRITE4_FILEPATH);
 		_data->assets.LoadTexture("Roll Frame 5", SARA_ROLL_SPRITE5_FILEPATH);
 
-		spikes = new Spikes(_data);
+		bullets = new Bullets(_data);
 		land = new Land(_data);
 		sara = new Sara(_data);
 		cursor = new GameCursor(_data);
@@ -157,10 +157,10 @@ namespace Tiger
 
 	void LevelState::Update(float dt)
 	{
-		spikes->MoveBulletsDown(dt);
+		bullets->MoveBulletsDown(dt);
 		sara->Update(dt);
 
-		if (spikes->IsCollidingWith(sara->GetSpriteMesh()))
+		if (bullets->IsCollidingWith(sara->GetSpriteMesh()))
 		{
 			std::cout << ++score << " hydrocarbon(s) collected. " << "\n";
 		}
@@ -173,8 +173,8 @@ namespace Tiger
 
 		if ((_clock.getElapsedTime().asSeconds() > BULLET_SPAWN_FREQUENCY))
 		{
-			spikes->RandomiseBulletOffset();
-			spikes->SpawnBullets();
+			bullets->RandomiseBulletOffset();
+			bullets->SpawnBullets();
 
 			_clock.restart();
 		}
@@ -182,7 +182,7 @@ namespace Tiger
 		if (_run)
 		{
 			land->MoveLand(dt);
-			spikes->MoveBulletsLeft(dt);
+			bullets->MoveBulletsLeft(dt);
 			sara->AnimateRunning(dt);
 			
 		} 
@@ -220,7 +220,7 @@ namespace Tiger
 
 		land->DrawLand();
 		sara->Draw();
-		spikes->DrawSpikes();
+		bullets->DrawSpikes();
 
 		cursor->DrawCursor();
 		_data->window.display();
