@@ -15,6 +15,8 @@ namespace Tiger
 	{
 		_data->assets.LoadTexture("Splash State BG", SPLASH_SCENE_BG_FILEPATH);
 		_bg.setTexture(this->_data->assets.GetTexture("Splash State BG"));
+
+		cursor = new GameCursor(_data);
 	}
 
 	void SplashState::HandleInput()
@@ -44,10 +46,13 @@ namespace Tiger
 
 	void SplashState::Draw(float dt)
 	{
+		cursor->SetCursorPosition();
 		_data->window.clear();
 
 		_data->window.draw(_bg);
 
+		cursor->DrawCursor();
 		_data->window.display();
+
 	}
 }

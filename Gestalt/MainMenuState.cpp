@@ -19,19 +19,21 @@ namespace Tiger
 
 		_data->assets.LoadTexture("Game Title", GAME_TITLE_FILEPATH);
 		_title.setTexture(this->_data->assets.GetTexture("Game Title"));
-		_title.setPosition(0.25 * SCREEN_WIDTH, 0.05 * SCREEN_HEIGHT);
+		_title.setPosition(0.375 * SCREEN_WIDTH, 0.05 * SCREEN_HEIGHT);
 
 		_data->assets.LoadTexture("Start Button", START_BUTTON_FILEPATH);
 		_startButton.setTexture(this->_data->assets.GetTexture("Start Button"));
-		_startButton.setPosition((0.4 * SCREEN_WIDTH) - 15, 0.5 * SCREEN_HEIGHT);
+		_startButton.setPosition((0.4 * SCREEN_WIDTH) - 1, 0.5 * SCREEN_HEIGHT);
 
 		_data->assets.LoadTexture("Quit Button", QUIT_BUTTON_FILEPATH);
 		_quitButton.setTexture(this->_data->assets.GetTexture("Quit Button"));
-		_quitButton.setPosition(_startButton.getPosition().x, _startButton.getPosition().y + 50);
+		_quitButton.setPosition(_startButton.getPosition().x, _startButton.getPosition().y + 80);
 
 		_data->assets.LoadTexture("Credits Button", CREDITS_BUTTON_FILEPATH);
 		_creditsButton.setTexture(this->_data->assets.GetTexture("Credits Button"));
-		_creditsButton.setPosition(_quitButton.getPosition().x + 5, _quitButton.getPosition().y + 50);
+		_creditsButton.setPosition(_quitButton.getPosition().x, _quitButton.getPosition().y + 80);
+
+		cursor = new GameCursor(_data);
 	}
 
 	void MainMenuState::HandleInput()
@@ -93,6 +95,7 @@ namespace Tiger
 
 	void MainMenuState::Draw(float dt)
 	{
+		cursor->SetCursorPosition();
 		_data->window.clear();
 
 		_data->window.draw(_bg);
@@ -103,6 +106,7 @@ namespace Tiger
 		_data->window.draw(_quitButton);
 		_data->window.draw(_creditsButton);
 
+		cursor->DrawCursor();
 		_data->window.display();
 	}
 }

@@ -29,6 +29,6 @@ namespace Tiger
 		sf::Sprite _quitButton;
 		sf::Sprite _creditsButton;
 
-		//sf::Sound _clickSound;
+		GameCursor* cursor;
 	};
 }

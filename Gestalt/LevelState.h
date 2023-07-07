@@ -31,5 +31,6 @@ namespace Tiger
 		Spikes *spikes;
 		Land *land;
 		Sara *sara;
+		GameCursor *cursor;
 	};
 }

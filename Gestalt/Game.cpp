@@ -12,6 +12,7 @@ namespace Tiger
 
 		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 		_data->machine.AddState(StateRef(new SplashState(this->_data)), true);
+		_data->window.setMouseCursorVisible(false);
 		
 		_data->music.openFromFile(MUSIC_FILEPATH);
 		_data->music.setVolume(0.4 * MUSIC_VOLUME);
@@ -61,6 +62,25 @@ namespace Tiger
 			interpolation = accumulator / dt;
 			this->_data->machine.GetActiveState()->Draw(interpolation);
 		}
+	}
+
+	GameCursor::GameCursor(GameDataRef data) : _cursorData(data)
+	{
+		_cursorTexture.loadFromFile(CURSOR_FILEPATH);
+		_cursorSprite.setTexture(_cursorTexture);
+
+		fixed = _cursorData->window.getView();
+	}
+
+	void GameCursor::SetCursorPosition()
+	{
+		_cursorSprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(this->_cursorData->window)));
+	}
+
+	void GameCursor::DrawCursor()
+	{
+		_cursorData->window.setView(fixed);
+		_cursorData->window.draw(_cursorSprite);
 	}
 
 }

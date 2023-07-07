@@ -4,33 +4,15 @@ namespace Tiger
 {
 	Spikes::Spikes(GameDataRef data) : _data(data)
 	{
-		_spikesHeight = _data->assets.GetTexture("Spike Down").getSize().y;
-		_spikeSpawnYOffset = 0;
-	}
-
-	void Spikes::SpawnSpikesDown()
-	{
-		sf::Sprite sprite(_data->assets.GetTexture("Spike Down"));
-
-		sprite.setPosition(_data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height + _spikeSpawnYOffset);
-
-		_spikeSprites.push_back(sprite);
-	}
-	
-	void Spikes::SpawnSpikesUp()
-	{
-		sf::Sprite sprite(_data->assets.GetTexture("Spike Up"));
-
-		sprite.setPosition(_data->window.getSize().x, 0);
-
-		_spikeSprites.push_back(sprite);
+		_bulletWidth = _data->assets.GetTexture("Bullet").getSize().x;
+		_bulletSpawnXOffset = 0;
 	}
 
 	void Spikes::SpawnBullets()
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("Bullet"));
 
-		sprite.setPosition(_data->window.getSize().x, 0);
+		sprite.setPosition(_data->window.getSize().x - _bulletSpawnXOffset, 0);
 
 		_spikeSprites.push_back(sprite);
 	}
@@ -39,7 +21,8 @@ namespace Tiger
 	{
 		for (unsigned short int i = 0; i < _spikeSprites.size(); i++)
 		{
-			if (_spikeSprites.at(i).getPosition().x + _spikeSprites.at(i).getGlobalBounds().width < 0) 
+			if ((_spikeSprites.at(i).getPosition().x + _spikeSprites.at(i).getGlobalBounds().width < 0) || 
+				(_spikeSprites.at(i).getPosition().y + _spikeSprites.at(i).getGlobalBounds().height > SCREEN_HEIGHT))
 			{
 				_spikeSprites.erase(_spikeSprites.begin() + i);
 			}
@@ -47,8 +30,18 @@ namespace Tiger
 			{
 				float movement = BULLET_SPEED * dt;
 
-				_spikeSprites.at(i).move(-movement, movement);
+				_spikeSprites.at(i).move(0, movement);
 			}
+		}
+	}
+
+	void Spikes::MoveBulletsLeft(float dt)
+	{
+		for (unsigned short int i = 0; i < _spikeSprites.size(); i++)
+		{
+			float movement = BULLET_SPEED * dt;
+
+			_spikeSprites.at(i).move(-movement, 0);
 		}
 	}
 
@@ -60,9 +53,9 @@ namespace Tiger
 		}
 	}
 
-	void Spikes::RandomiseSpikeOffset()
+	void Spikes::RandomiseBulletOffset()
 	{
-		_spikeSpawnYOffset = rand() % (_spikesHeight + 1);
+		_bulletSpawnXOffset = 25 * (rand() % (_bulletWidth + 1));
 	}
 
 	int Spikes::GetTilesCount()

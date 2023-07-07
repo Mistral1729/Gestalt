@@ -20,7 +20,7 @@
 
 /**
 
-	UI BUTTONS
+	UI BUTTONS, MOUSE CURSOR, GAME ICON, STATUS BARS
 
 **/
 
@@ -30,6 +30,11 @@
 #define NEXT_BUTTON_FILEPATH	"resources\\ui\\next_button.png"
 #define BACK_BUTTON_FILEPATH	"resources\\ui\\back_button.png"
 #define CREDITS_BUTTON_FILEPATH "resources\\ui\\credits_button.png"
+
+#define CURSOR_FILEPATH			"resources\\ui\\cursor.png"
+#define GAME_ICON_FILEPATH		"resources\\ui\\icon_red.png"
+#define STATUS_BAR_FILEPATH		"resources\\ui\\status_bar.png"
+#define STATUS_TILE_FILEPATH	"resources\\ui\\status_tile.png"
 
 /**
 
@@ -48,10 +53,8 @@
 **/
 
 #define LAND_TILE_FILEPATH	"resources\\land.png"
-#define SPIKE_UP_FILEPATH	"resources\\spike_up.png"
-#define SPIKE_DOWN_FILEPATH	"resources\\spike_down.png"
 
-#define BULLET_FILEPATH	"resources\\bullet.png"
+#define BULLET_FILEPATH	"resources\\bullet1.png"
 
 /**
 
@@ -60,10 +63,10 @@
 **/
 
 #define TILE_SPEED	100.f
-#define BULLET_SPEED	100.f
+#define BULLET_SPEED	500.f
 
 #define SPIKE_SPAWN_FREQUENCY	3.f
-#define BULLET_SPAWN_FREQUENCY	15.f	//must increase frequency gradually
+#define BULLET_SPAWN_FREQUENCY	.1f	//must increase frequency gradually
 
 #define STAND_ANIMATION_DURATION		3.f
 #define RUN_ANIMATION_DURATION			1.f

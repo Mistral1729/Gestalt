@@ -27,5 +27,7 @@ namespace Tiger
 		sf::Sprite _interface;
 		sf::Sprite _nextButton;
 		sf::Sprite _backButton;
+
+		GameCursor* cursor;
 	};
 }

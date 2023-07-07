@@ -21,11 +21,13 @@ namespace Tiger
 
 		_data->assets.LoadTexture("Credits Interface", CREDITS_INTERFACE_FILEPATH);
 		_interface.setTexture(this->_data->assets.GetTexture("Credits Interface"));
-		_interface.setPosition(0.25 * SCREEN_WIDTH + 45, 0.05 * SCREEN_HEIGHT);
+		_interface.setPosition((0.125 * SCREEN_WIDTH) - 25, 0.125 * SCREEN_HEIGHT);
 
 		_data->assets.LoadTexture("Back Button", BACK_BUTTON_FILEPATH);
 		_backButton.setTexture(this->_data->assets.GetTexture("Back Button"));
-		_backButton.setPosition(0.25 * SCREEN_WIDTH, SCREEN_HEIGHT - 100);
+		_backButton.setPosition((0.125 * SCREEN_WIDTH) - 5, SCREEN_HEIGHT - 70);
+
+		cursor = new GameCursor(_data);
 	}
 
 	void CreditsState::HandleInput()
@@ -73,6 +75,7 @@ namespace Tiger
 
 	void CreditsState::Draw(float dt)
 	{
+		cursor->SetCursorPosition();
 		_data->window.clear();
 
 		_data->window.draw(_bg);
@@ -80,6 +83,7 @@ namespace Tiger
 
 		_data->window.draw(_backButton);
 
+		cursor->DrawCursor();
 		_data->window.display();
 	}
 }

@@ -13,20 +13,18 @@ namespace Tiger
 	public:
 		Spikes(GameDataRef data);
 
-		void SpawnSpikesDown();
-		void SpawnSpikesUp();
 		void SpawnBullets();
-		void MoveSpikes(float dt);
 		void MoveBulletsDown(float dt);
+		void MoveBulletsLeft(float dt);
 		void DrawSpikes();
-		void RandomiseSpikeOffset();
+		void RandomiseBulletOffset();
 		int GetTilesCount();
 
 	private:
 		GameDataRef _data;
 		std::vector<sf::Sprite> _spikeSprites;
 
-		int _spikesHeight;
-		int _spikeSpawnYOffset;
+		int _bulletWidth;
+		int _bulletSpawnXOffset;
 	};
 }

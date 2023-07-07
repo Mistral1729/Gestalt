@@ -24,5 +24,7 @@ namespace Tiger
 		sf::Clock _clock;
 
 		sf::Sprite _bg;
+
+		GameCursor* cursor;
 	};
 }

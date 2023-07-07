@@ -16,8 +16,6 @@ namespace Tiger
 		_bg.setTexture(this->_data->assets.GetTexture("Game BG"));
 
 		_data->assets.LoadTexture("Land", LAND_TILE_FILEPATH);
-		_data->assets.LoadTexture("Spike Up", SPIKE_UP_FILEPATH);
-		_data->assets.LoadTexture("Spike Down", SPIKE_DOWN_FILEPATH);
 
 		_data->assets.LoadTexture("Bullet", BULLET_FILEPATH);
 
@@ -86,6 +84,7 @@ namespace Tiger
 		spikes = new Spikes(_data);
 		land = new Land(_data);
 		sara = new Sara(_data);
+		cursor = new GameCursor(_data);
 		_run = _jump = _roll = _flip = _crouch = false;
 	}
 
@@ -161,19 +160,19 @@ namespace Tiger
 		spikes->MoveBulletsDown(dt);
 		sara->Update(dt);
 
+		if ((_clock.getElapsedTime().asSeconds() > BULLET_SPAWN_FREQUENCY))
+		{
+			spikes->RandomiseBulletOffset();
+			spikes->SpawnBullets();
+
+			_clock.restart();
+		}
+
 		if (_run)
 		{
 			land->MoveLand(dt);
+			spikes->MoveBulletsLeft(dt);
 			sara->AnimateRunning(dt);
-
-			
-			if ((_clock.getElapsedTime().asSeconds() > BULLET_SPAWN_FREQUENCY))
-			{
-				//spikes->RandomisBulletOffset();
-				spikes->SpawnBullets();
-
-				_clock.restart();
-			}
 			
 		} 
 		else if (_jump)
@@ -203,6 +202,7 @@ namespace Tiger
 
 	void LevelState::Draw(float dt)
 	{
+		cursor->SetCursorPosition();
 		_data->window.clear();
 
 		_data->window.draw(_bg);
@@ -211,6 +211,7 @@ namespace Tiger
 		sara->Draw();
 		spikes->DrawSpikes();
 
+		cursor->DrawCursor();
 		_data->window.display();
 	}
 }
