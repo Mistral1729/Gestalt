@@ -24,9 +24,10 @@ namespace Tiger
 		GameDataRef _data;
 		bool _run, _jump, _roll, _flip, _crouch;
 		unsigned int score;
+		float bullet_frequency;
 
 		sf::Clock _clock;
-
+		sf::Text _scoreText;
 		sf::Sprite _bg;
 
 		Bullets *bullets;

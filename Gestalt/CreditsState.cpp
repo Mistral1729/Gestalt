@@ -16,14 +16,12 @@ namespace Tiger
 		_data->assets.LoadTexture("Credits BG", CREDITS_MENU_BG_FILEPATH);
 		_bg.setTexture(this->_data->assets.GetTexture("Credits BG"));
 
-		_data->assets.LoadTexture("Next Button", NEXT_BUTTON_FILEPATH);
 		_nextButton.setTexture(this->_data->assets.GetTexture("Next Button"));
 
 		_data->assets.LoadTexture("Credits Interface", CREDITS_INTERFACE_FILEPATH);
 		_interface.setTexture(this->_data->assets.GetTexture("Credits Interface"));
 		_interface.setPosition((0.125 * SCREEN_WIDTH) - 25, 0.125 * SCREEN_HEIGHT);
 
-		_data->assets.LoadTexture("Back Button", BACK_BUTTON_FILEPATH);
 		_backButton.setTexture(this->_data->assets.GetTexture("Back Button"));
 		_backButton.setPosition((0.125 * SCREEN_WIDTH) - 5, SCREEN_HEIGHT - 70);
 

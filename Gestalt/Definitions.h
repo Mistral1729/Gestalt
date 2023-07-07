@@ -15,12 +15,16 @@
 #define CREDITS_MENU_BG_FILEPATH	"resources\\ui\\menu.png"
 #define CREDITS_INTERFACE_FILEPATH	"resources\\ui\\credits_interface.png"
 
+#define PROLOGUE_WAIT_TIME 3.f
+#define PROLOGUE_1_FILEPATH		"resources\\ui\\prologue_1.png"
+#define PROLOGUE_2_FILEPATH		"resources\\ui\\prologue_2.png"
+#define GAME_OVER_BG_FILEPATH	"resources\\ui\\game_over.png"
+
 #define GAME_BG_FILEPATH		"resources\\oga-swm-bg-gradient-sky.png"
-#define GAME_OVER_BG_FILEPATH	"resources\\oga-swm-bg-gradient-sky.png"
 
 /**
 
-	UI BUTTONS, MOUSE CURSOR, GAME ICON, STATUS BARS
+	UI BUTTONS, MOUSE CURSOR, GAME ICON, STATUS BARS, SCORE FONT
 
 **/
 
@@ -35,6 +39,7 @@
 #define GAME_ICON_FILEPATH		"resources\\ui\\icon_red.png"
 #define STATUS_BAR_FILEPATH		"resources\\ui\\status_bar.png"
 #define STATUS_TILE_FILEPATH	"resources\\ui\\status_tile.png"
+#define SCORE_FONT_FILEPATH		"resources\\fonts\\l_10646.ttf"
 
 /**
 
@@ -66,7 +71,7 @@
 #define BULLET_SPEED	500.f
 
 #define SPIKE_SPAWN_FREQUENCY	3.f
-#define BULLET_SPAWN_FREQUENCY	.1f	//must increase frequency gradually
+#define BULLET_SPAWN_FREQUENCY	.1f	//NOT ACTUALLY FREQUENCY BUT RECIPROCAL OF FREQUENCY I.E. TIME TILL NEXT SPAWN
 
 #define STAND_ANIMATION_DURATION		3.f
 #define RUN_ANIMATION_DURATION			1.f

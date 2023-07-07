@@ -26,6 +26,8 @@ namespace Tiger
 		GameDataRef _data;
 		std::vector<sf::Sprite> _bulletSprites;
 
+		sf::Text _scoreText;
+
 		int _bulletWidth;
 		int _bulletSpawnXOffset;
 	};

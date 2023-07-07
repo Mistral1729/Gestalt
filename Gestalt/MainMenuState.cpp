@@ -1,7 +1,7 @@
 #include <sstream>
 #include <iostream>
 
-#include "LevelState.h"
+#include "Prologue.h"
 #include "CreditsState.h"
 #include "MainMenuState.h"
 
@@ -32,6 +32,9 @@ namespace Tiger
 		_data->assets.LoadTexture("Credits Button", CREDITS_BUTTON_FILEPATH);
 		_creditsButton.setTexture(this->_data->assets.GetTexture("Credits Button"));
 		_creditsButton.setPosition(_quitButton.getPosition().x, _quitButton.getPosition().y + 80);
+
+		_data->assets.LoadTexture("Back Button", BACK_BUTTON_FILEPATH);
+		_data->assets.LoadTexture("Next Button", NEXT_BUTTON_FILEPATH);
 
 		cursor = new GameCursor(_data);
 	}
@@ -74,7 +77,7 @@ namespace Tiger
 
 		if (_data->input.IsSpriteClicked(_startButton, sf::Mouse::Left, _data->window))
 		{
-			_data->machine.AddState(StateRef(new LevelState(_data)), true);
+			_data->machine.AddState(StateRef(new Prologue(_data)), true);
 		}
 
 		if (_data->input.IsSpriteClicked(_quitButton, sf::Mouse::Left, _data->window))

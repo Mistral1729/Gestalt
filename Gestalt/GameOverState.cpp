@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "GameOverState.h"
+#include "MainMenuState.h"
 
 namespace Tiger
 {
@@ -13,7 +14,9 @@ namespace Tiger
 	void GameOverState::Init()
 	{
 		_data->assets.LoadTexture("Game Over BG", GAME_OVER_BG_FILEPATH);
-		_bg.setTexture(this->_data->assets.GetTexture("Game Over BG"));
+		_bg.setTexture(this->_data->assets.GetTexture("Game Over BG")); 
+
+		cursor = new GameCursor(_data);
 	}
 
 	void GameOverState::HandleInput()
@@ -31,6 +34,11 @@ namespace Tiger
 				break;
 			}
 		}
+
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return)))
+		{
+			_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
+		}
 	}
 
 	void GameOverState::Update(float dt)
@@ -40,10 +48,12 @@ namespace Tiger
 
 	void GameOverState::Draw(float dt)
 	{
+		cursor->SetCursorPosition();
 		_data->window.clear();
 
 		_data->window.draw(_bg);
 
+		cursor->DrawCursor();
 		_data->window.display();
 	}
 }

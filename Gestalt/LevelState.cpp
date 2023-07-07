@@ -1,6 +1,7 @@
 #include <sstream>
 #include <iostream>
 
+#include "GameOverState.h"
 #include "LevelState.h"
 
 namespace Tiger
@@ -81,11 +82,19 @@ namespace Tiger
 		_data->assets.LoadTexture("Roll Frame 4", SARA_ROLL_SPRITE4_FILEPATH);
 		_data->assets.LoadTexture("Roll Frame 5", SARA_ROLL_SPRITE5_FILEPATH);
 
+		_data->assets.LoadFont("Score Font", SCORE_FONT_FILEPATH);
+
 		bullets = new Bullets(_data);
 		land = new Land(_data);
 		sara = new Sara(_data);
 		cursor = new GameCursor(_data);
 		_run = _jump = _roll = _flip = _crouch = score = 0;
+		bullet_frequency = BULLET_SPAWN_FREQUENCY;
+
+		_scoreText.setFont(_data->assets.GetFont("Score Font"));
+		_scoreText.setPosition(0.5 * SCREEN_WIDTH, 50);
+		_scoreText.setCharacterSize(36);
+		_scoreText.setFillColor(sf::Color::Magenta);
 	}
 
 	void LevelState::HandleInput()
@@ -148,30 +157,26 @@ namespace Tiger
 		{
 			_flip = false;
 		}
-
-		if (_data->input.IsSpriteClicked(_bg, sf::Mouse::Left, _data->window))
-		{
-			//Do something...
-		}
 	}
 
 	void LevelState::Update(float dt)
 	{
+		if (score >= 100)
+		{
+			_data->machine.AddState(StateRef(new GameOverState(_data)), true);
+		}
+
 		bullets->MoveBulletsDown(dt);
 		sara->Update(dt);
 
 		if (bullets->IsCollidingWith(sara->GetSpriteMesh()))
 		{
-			std::cout << ++score << " hydrocarbon(s) collected. " << "\n";
+			bullet_frequency += (0.001 * ++score);
+			_scoreText.setString(std::to_string(score));
+			std::cout << "Current frequency : " << (1.f / bullet_frequency) << "\n";
 		}
 
-		if (score > 100)
-		{
-			//Add Game Completion State 
-			std::cout << "Gz!" << "\n";
-		}
-
-		if ((_clock.getElapsedTime().asSeconds() > BULLET_SPAWN_FREQUENCY))
+		if ((_clock.getElapsedTime().asSeconds() > bullet_frequency))
 		{
 			bullets->RandomiseBulletOffset();
 			bullets->SpawnBullets();
@@ -222,6 +227,7 @@ namespace Tiger
 		sara->Draw();
 		bullets->DrawSpikes();
 
+		_data->window.draw(_scoreText);
 		cursor->DrawCursor();
 		_data->window.display();
 	}

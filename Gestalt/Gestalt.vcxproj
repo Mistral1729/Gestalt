@@ -154,6 +154,7 @@
     <ClCompile Include="LevelState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="Prologue.cpp" />
     <ClCompile Include="Sara.cpp" />
     <ClCompile Include="Bullets.cpp" />
     <ClCompile Include="SplashState.cpp" />
@@ -169,11 +170,20 @@
     <ClInclude Include="Land.h" />
     <ClInclude Include="LevelState.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="Prologue.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="Sara.h" />
     <ClInclude Include="Bullets.h" />
     <ClInclude Include="SplashState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Gestalt.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\ui\icon_red.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
