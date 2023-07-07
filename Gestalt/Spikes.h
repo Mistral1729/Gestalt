@@ -20,6 +20,8 @@ namespace Tiger
 		void RandomiseBulletOffset();
 		int GetTilesCount();
 
+		bool IsCollidingWith(sf::FloatRect mesh);
+
 	private:
 		GameDataRef _data;
 		std::vector<sf::Sprite> _spikeSprites;

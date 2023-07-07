@@ -85,7 +85,7 @@ namespace Tiger
 		land = new Land(_data);
 		sara = new Sara(_data);
 		cursor = new GameCursor(_data);
-		_run = _jump = _roll = _flip = _crouch = false;
+		_run = _jump = _roll = _flip = _crouch = score = 0;
 	}
 
 	void LevelState::HandleInput()
@@ -159,6 +159,17 @@ namespace Tiger
 	{
 		spikes->MoveBulletsDown(dt);
 		sara->Update(dt);
+
+		if (spikes->IsCollidingWith(sara->GetSpriteMesh()))
+		{
+			std::cout << ++score << " hydrocarbon(s) collected. " << "\n";
+		}
+
+		if (score > 100)
+		{
+			//Add Game Completion State 
+			std::cout << "Gz!" << "\n";
+		}
 
 		if ((_clock.getElapsedTime().asSeconds() > BULLET_SPAWN_FREQUENCY))
 		{

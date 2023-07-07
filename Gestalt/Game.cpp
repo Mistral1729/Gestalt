@@ -10,9 +10,13 @@ namespace Tiger
 	{
 		srand(time(NULL));
 
+		sf::Image icon;
+
 		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 		_data->machine.AddState(StateRef(new SplashState(this->_data)), true);
 		_data->window.setMouseCursorVisible(false);
+
+		if (icon.loadFromFile(GAME_ICON_FILEPATH))	_data->window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 		
 		_data->music.openFromFile(MUSIC_FILEPATH);
 		_data->music.setVolume(0.4 * MUSIC_VOLUME);

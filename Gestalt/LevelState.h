@@ -23,6 +23,7 @@ namespace Tiger
 	private:
 		GameDataRef _data;
 		bool _run, _jump, _roll, _flip, _crouch;
+		unsigned int score;
 
 		sf::Clock _clock;
 

@@ -22,6 +22,8 @@ namespace Tiger
 		void Update(float dt);
 		void Draw();
 
+		sf::FloatRect GetSpriteMesh();
+
 	private:
 		GameDataRef _data;
 

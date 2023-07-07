@@ -166,4 +166,9 @@ namespace Tiger
 	{
 		_data->window.draw(_saraSprite);
 	}
+
+	sf::FloatRect Sara::GetSpriteMesh()
+	{
+		return _saraSprite.getGlobalBounds();
+	}
 }

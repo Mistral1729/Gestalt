@@ -62,4 +62,18 @@ namespace Tiger
 	{
 		return _spikeSprites.size();
 	}
+
+	bool Spikes::IsCollidingWith(sf::FloatRect mesh)
+	{
+		for (unsigned short int i = 0; i < _spikeSprites.size(); i++)
+		{
+			if (_spikeSprites.at(i).getGlobalBounds().intersects(mesh))
+			{
+				_spikeSprites.erase(_spikeSprites.begin() + i);
+				return true;
+			}
+		}
+
+		return false;
+	}
 }
