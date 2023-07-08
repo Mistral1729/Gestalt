@@ -1,5 +1,6 @@
 #include <sstream>
 #include <iostream>
+#include <charconv>
 
 #include "GameOverState.h"
 #include "LevelState.h"
@@ -95,6 +96,11 @@ namespace Tiger
 		_scoreText.setPosition(0.5 * SCREEN_WIDTH, 50);
 		_scoreText.setCharacterSize(36);
 		_scoreText.setFillColor(sf::Color::Magenta);
+
+		_timerText.setFont(_data->assets.GetFont("Score Font"));
+		_timerText.setPosition(0.0625 * SCREEN_WIDTH, 50);
+		_timerText.setCharacterSize(16);
+		_timerText.setFillColor(sf::Color::White);
 	}
 
 	void LevelState::HandleInput()
@@ -161,8 +167,22 @@ namespace Tiger
 
 	void LevelState::Update(float dt)
 	{
+		std::string timeText = std::to_string(_timer.getElapsedTime().asSeconds() / 60.f);
+		_timerText.setString(timeText + " min.s ");
+
 		if (score >= 100)
-		{
+		{	
+			if (_timer.getElapsedTime().asSeconds() > (ENDING_WAIT_TIME * 60.f))
+			{
+				_data->loseSound.play();
+				_data->badEndFlag = true;
+			}
+			else
+			{
+				_data->winSound.play();
+				_data->badEndFlag = false;
+			}
+
 			_data->machine.AddState(StateRef(new GameOverState(_data)), true);
 		}
 
@@ -173,7 +193,8 @@ namespace Tiger
 		{
 			bullet_frequency += (0.001 * ++score);
 			_scoreText.setString(std::to_string(score));
-			std::cout << "Current frequency : " << (1.f / bullet_frequency) << "\n";
+			_data->collectSound.play();
+			//std::cout << "Current frequency : " << (1.f / bullet_frequency) << "\n";
 		}
 
 		if ((_clock.getElapsedTime().asSeconds() > bullet_frequency))
@@ -228,6 +249,7 @@ namespace Tiger
 		bullets->DrawSpikes();
 
 		_data->window.draw(_scoreText);
+		_data->window.draw(_timerText);
 		cursor->DrawCursor();
 		_data->window.display();
 	}

@@ -12,6 +12,8 @@ namespace Tiger
 
 		sf::Image icon;
 
+		_data->badEndFlag = false;
+
 		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 		_data->machine.AddState(StateRef(new SplashState(this->_data)), true);
 		_data->window.setMouseCursorVisible(false);
@@ -24,11 +26,23 @@ namespace Tiger
 
 		_data->music.play();
 
-		sf::SoundBuffer clickBuffer;
+		sf::SoundBuffer clickBuffer, collectBuffer, winBuffer, loseBuffer;
 		clickBuffer.loadFromFile(CLICK_SOUND_FILEPATH);
+		collectBuffer.loadFromFile(COLLECT_SOUND_FILEPATH);
+		winBuffer.loadFromFile(GAME_OVER_SOUND_FILEPATH);
+		loseBuffer.loadFromFile(GAME_OVER_BAD_SOUND_FILEPATH);
 		
 		_data->clickSound.setBuffer(clickBuffer);
 		_data->clickSound.setVolume(0.6 * SOUND_VOLUME);
+
+		_data->collectSound.setBuffer(collectBuffer);
+		_data->collectSound.setVolume(0.6 * SOUND_VOLUME);
+
+		_data->winSound.setBuffer(winBuffer);
+		_data->winSound.setVolume(0.6 * SOUND_VOLUME);
+
+		_data->loseSound.setBuffer(loseBuffer);
+		_data->loseSound.setVolume(0.6 * SOUND_VOLUME);
 
 		this->Run();
 	}

@@ -20,10 +20,10 @@ namespace Tiger
 
 		_data->assets.LoadTexture("Credits Interface", CREDITS_INTERFACE_FILEPATH);
 		_interface.setTexture(this->_data->assets.GetTexture("Credits Interface"));
-		_interface.setPosition((0.125 * SCREEN_WIDTH) - 25, 0.125 * SCREEN_HEIGHT);
+		_interface.setPosition(50, 0);
 
 		_backButton.setTexture(this->_data->assets.GetTexture("Back Button"));
-		_backButton.setPosition((0.125 * SCREEN_WIDTH) - 5, SCREEN_HEIGHT - 70);
+		_backButton.setPosition(80, 400);
 
 		cursor = new GameCursor(_data);
 	}

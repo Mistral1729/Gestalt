@@ -28,7 +28,7 @@ namespace Tiger
 
 		sf::Text _scoreText;
 
-		int _bulletWidth;
+		int _saraXPos;
 		int _bulletSpawnXOffset;
 	};
 }

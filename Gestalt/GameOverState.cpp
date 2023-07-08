@@ -13,8 +13,17 @@ namespace Tiger
 
 	void GameOverState::Init()
 	{
-		_data->assets.LoadTexture("Game Over BG", GAME_OVER_BG_FILEPATH);
-		_bg.setTexture(this->_data->assets.GetTexture("Game Over BG")); 
+		_data->assets.LoadTexture("Good End", GAME_OVER_BG_FILEPATH); 
+		_data->assets.LoadTexture("Bad End", GAME_OVER_BAD_BG_FILEPATH);
+		
+		if (this->_data->badEndFlag)
+		{
+			_bg.setTexture(this->_data->assets.GetTexture("Bad End"));
+		}
+		else
+		{
+			_bg.setTexture(this->_data->assets.GetTexture("Good End"));
+		}
 
 		cursor = new GameCursor(_data);
 	}

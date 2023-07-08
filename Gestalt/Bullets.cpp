@@ -4,7 +4,7 @@ namespace Tiger
 {
 	Bullets::Bullets(GameDataRef data) : _data(data)
 	{
-		_bulletWidth = _data->assets.GetTexture("Bullet").getSize().x;
+		_saraXPos = 0.2 * SCREEN_WIDTH;
 		_bulletSpawnXOffset = 0;
 	}
 
@@ -12,7 +12,7 @@ namespace Tiger
 	{
 		sf::Sprite sprite(_data->assets.GetTexture("Bullet"));
 
-		sprite.setPosition(_data->window.getSize().x - _bulletSpawnXOffset, 0);
+		sprite.setPosition(_bulletSpawnXOffset, 0);
 
 		_bulletSprites.push_back(sprite);
 	}
@@ -55,7 +55,7 @@ namespace Tiger
 
 	void Bullets::RandomiseBulletOffset()
 	{
-		_bulletSpawnXOffset = 25 * (rand() % (_bulletWidth + 1));
+		_bulletSpawnXOffset = (rand() % (SCREEN_WIDTH - _saraXPos - 50)) + _saraXPos + 50; //Any integer in the range [_saraXPos + 50, SCREEN_WIDTH - 1]  
 	}
 
 	int Bullets::GetTilesCount()

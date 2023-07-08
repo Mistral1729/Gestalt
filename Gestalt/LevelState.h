@@ -23,11 +23,12 @@ namespace Tiger
 	private:
 		GameDataRef _data;
 		bool _run, _jump, _roll, _flip, _crouch;
+
 		unsigned int score;
 		float bullet_frequency;
 
-		sf::Clock _clock;
-		sf::Text _scoreText;
+		sf::Clock _clock, _timer; //timer is to check if ending wait time is exceeded, in which case bad ending
+		sf::Text _scoreText, _timerText;
 		sf::Sprite _bg;
 
 		Bullets *bullets;

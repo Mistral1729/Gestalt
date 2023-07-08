@@ -1,24 +1,27 @@
 #pragma once
 
 #define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 800
+#define SCREEN_HEIGHT 600
 
 #define MUSIC_VOLUME 100.f
 #define SOUND_VOLUME 100.f
 
 #define MUSIC_FILEPATH "resources\\audio\\whitebat.ogg"
 
-#define SPLASH_STATE_SHOW_TIME 5.f
+#define SPLASH_STATE_SHOW_TIME 1.f
 #define SPLASH_SCENE_BG_FILEPATH "resources\\splash_scene_bg.png"
 
 #define MAIN_MENU_BG_FILEPATH		"resources\\ui\\menu.png"
 #define CREDITS_MENU_BG_FILEPATH	"resources\\ui\\menu.png"
 #define CREDITS_INTERFACE_FILEPATH	"resources\\ui\\credits_interface.png"
 
-#define PROLOGUE_WAIT_TIME 3.f
-#define PROLOGUE_1_FILEPATH		"resources\\ui\\prologue_1.png"
-#define PROLOGUE_2_FILEPATH		"resources\\ui\\prologue_2.png"
-#define GAME_OVER_BG_FILEPATH	"resources\\ui\\game_over.png"
+#define PROLOGUE_WAIT_TIME 1.f
+#define PROLOGUE_1_FILEPATH			"resources\\ui\\prologue_1.png"
+#define PROLOGUE_2_FILEPATH			"resources\\ui\\prologue_2.png"
+
+#define ENDING_WAIT_TIME 4.f	//IN MINUTES
+#define GAME_OVER_BG_FILEPATH		"resources\\ui\\game_over.png"
+#define GAME_OVER_BAD_BG_FILEPATH	"resources\\ui\\game_over_bad.png"
 
 #define GAME_BG_FILEPATH		"resources\\oga-swm-bg-gradient-sky.png"
 
@@ -47,9 +50,11 @@
 
 **/
 
-#define CLICK_SOUND_FILEPATH		"resources\\ui\\sounds\\load.wav"
-#define BACK_SOUND_FILEPATH			"resources\\ui\\sounds\\load.wav"
-#define GAME_OVER_SOUND_FILEPATH	"resources\\ui\\sounds\\misc_sound.wav"
+#define CLICK_SOUND_FILEPATH			"resources\\ui\\sounds\\load.wav"
+#define BACK_SOUND_FILEPATH				"resources\\ui\\sounds\\load.wav"
+#define COLLECT_SOUND_FILEPATH			"resources\\ui\\sounds\\misc_menu_2.wav"
+#define GAME_OVER_SOUND_FILEPATH		"resources\\ui\\sounds\\misc_sound.wav"
+#define GAME_OVER_BAD_SOUND_FILEPATH	"resources\\ui\\sounds\\negative_2.wav"
 
 /**
 
@@ -67,10 +72,9 @@
 
 **/
 
-#define TILE_SPEED	100.f
+#define TILE_SPEED	50.f
 #define BULLET_SPEED	500.f
 
-#define SPIKE_SPAWN_FREQUENCY	3.f
 #define BULLET_SPAWN_FREQUENCY	.1f	//NOT ACTUALLY FREQUENCY BUT RECIPROCAL OF FREQUENCY I.E. TIME TILL NEXT SPAWN
 
 #define STAND_ANIMATION_DURATION		3.f
